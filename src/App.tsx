@@ -1,12 +1,13 @@
+import {Route, Routes} from 'react-router';
+import Callback from './auth/Callback';
 import UserAuth from './auth/UserAuth';
 
 function App() {
 	return (
-		<div>
-			<h1>Supabase Auth Example</h1>
-			<p>Check the console for authentication status.</p>
-			<UserAuth />
-		</div>
+		<Routes>
+			<Route path="/*" element={<UserAuth />} />
+			<Route path="/auth/callback" element={<Callback />} />
+		</Routes>
 	);
 }
 
