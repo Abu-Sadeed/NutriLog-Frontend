@@ -1,7 +1,23 @@
 import {useState} from 'react';
 import {supabase} from '../lib/supabase';
 
-export const Login = () => {
+async function signInWithGoogle() {
+	const {data, error} = await supabase.auth.signInWithOAuth({
+		provider: 'google',
+		options: {
+			redirectTo: `${globalThis.location.origin}/auth/callback`,
+			scopes: 'email profile',
+		},
+	});
+
+	if (error) {
+		console.error(error);
+	} else {
+		console.log(data);
+	}
+}
+
+export const SignIn = () => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 
@@ -41,8 +57,9 @@ export const Login = () => {
 				onChange={handlePasswordChange}
 			/>
 			<button onClick={signInWithEmail}>Sign In</button>
+			<button onClick={signInWithGoogle}>Sign In with Google</button>
 		</div>
 	);
 };
 
-export default Login;
+export default SignIn;
