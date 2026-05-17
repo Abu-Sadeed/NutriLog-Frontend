@@ -1,7 +1,7 @@
 import {Route, Routes} from 'react-router';
-import Callback from './auth/Callback';
-import UserAuth from './auth/UserAuth';
-import Dashboard from './dashboard/Dashboard';
+import Callback from './pages/AuthCallback';
+import Dashboard from './pages/Dashboard';
+import UserAuth from './pages/LoginPage';
 
 function App() {
 	return (
