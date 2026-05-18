@@ -1,10 +1,12 @@
 import {NavLink, Outlet} from 'react-router';
+import Avatar from './Avatar';
 
 const Layout = () => {
 	return (
 		<div className="flex flex-col min-h-screen">
-			<header className="bg-gray-800 text-white p-4">
+			<header className="bg-gray-800 text-white p-4 flex justify-between items-center">
 				<h1 className="text-2xl font-bold">NutriLog</h1>
+				<Avatar />
 			</header>
 			<main className="grow p-4">
 				<Outlet />
